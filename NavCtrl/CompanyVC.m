@@ -10,6 +10,12 @@
 
 @interface CompanyVC ()
 
+@property NSMutableArray* appleProds;
+@property NSMutableArray* samsungProds;
+@property NSMutableArray* htcProds;
+@property NSMutableArray* motorolaProds;
+
+
 @end
 
 @implementation CompanyVC
@@ -22,8 +28,14 @@
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditMode)];
     self.navigationItem.rightBarButtonItem = editButton;
     
+    self.appleProds = [[NSMutableArray alloc] initWithArray:@[@"iPad", @"iPod Touch",@"iPhone"]];
+    self.samsungProds = [[NSMutableArray alloc] initWithArray:@[@"Galaxy S4", @"Galaxy Note", @"Galaxy Tab"]];
+    self.htcProds = [[NSMutableArray alloc] initWithArray:@[@"HTCU11", @"HTC10",@"HTC Bolt"]];
+    self.motorolaProds = [[NSMutableArray alloc] initWithArray:@[@"Razor", @"Moto Z",@"Hasselblad"]];
+
     
-    self.companyList = @[@"Apple mobile devices",@"Samsung mobile devices"];
+    self.companyList = [[NSMutableArray alloc] initWithArray:@[@"Apple mobile devices",@"Samsung mobile devices", @"HTC mobile devices", @"Motorola mobile devices"]];
+    
     self.title = @"Mobile device makers";
     // Do any additional setup after loading the view from its nib.
 }
@@ -49,14 +61,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [self.companyList count];
 }
@@ -69,6 +81,20 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    NSString *companyName = [self.companyList objectAtIndex:[indexPath row]];
+    
+    if ([companyName isEqualToString:@"Apple mobile devices"]) {
+        cell.imageView.image = [UIImage imageNamed:@"Apple"];
+    }
+    else if ([companyName isEqualToString:@"Samsung mobile devices"]) {
+        cell.imageView.image = [UIImage imageNamed:@"Samsung"];
+    }
+    else if ([companyName isEqualToString:@"HTC mobile devices"]) {
+            cell.imageView.image = [UIImage imageNamed:@"HTC"];
+    }
+    else if ([companyName isEqualToString:@"Motorola mobile devices"]) {
+        cell.imageView.image = [UIImage imageNamed:@"Motorola"];
+    }
     // Configure the cell...
     
     cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
@@ -77,15 +103,21 @@
 }
 
 
-/*
+
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
  // Return NO if you do not want the specified item to be editable.
  return YES;
  }
- */
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.companyList removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+    }
+}
 /*
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,41 +132,61 @@
  }
  */
 
-/*
+
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
  {
+     NSString *productToMove = self.companyList[fromIndexPath.row];
+     
+     [self.companyList removeObjectAtIndex:fromIndexPath.row];
+     [self.companyList insertObject:productToMove atIndex:toIndexPath.row];
+     [self.tableView reloadData];
  }
- */
+ 
 
-/*
+
  // Override to support conditional rearranging of the table view.
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
  {
  // Return NO if you do not want the item to be re-orderable.
  return YES;
  }
- */
+ 
 
 
 #pragma mark - Table view delegate
 
+    
+    
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    NSString *selectedCompany = [self.companyList objectAtIndex:indexPath.row];
+
     self.productViewController = [[ProductVC alloc]init];
-    if (indexPath.row == 0){
+    if ([selectedCompany isEqualToString:@"Apple mobile devices"]){
         self.productViewController.title = @"Apple mobile devices";
-    } else {
+        self.productViewController.products = self.appleProds;
+        
+    } else if ([selectedCompany isEqualToString:@"Samsung mobile devices"]){
         self.productViewController.title = @"Samsung mobile devices";
+        self.productViewController.products = self.samsungProds;
+        
+    } else if ([selectedCompany isEqualToString:@"HTC mobile devices"]){
+        self.productViewController.title = @"HTC mobile devices";
+        self.productViewController.products = self.htcProds;
+        
+    } else if ([selectedCompany isEqualToString:@"Motorola mobile devices"]){
+        self.productViewController.title = @"Motorola mobile devices";
+        self.productViewController.products = self.motorolaProds;
     }
     
     [self.navigationController
      pushViewController:self.productViewController
      animated:YES];
-    
 }
+
 
 
 /*

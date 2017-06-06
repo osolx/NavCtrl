@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B7324C81ED4DFD700938CFE /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7324C41ED4DFD700938CFE /* Apple.png */; };
+		0B7324CA1ED4DFD700938CFE /* Motorola.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7324C61ED4DFD700938CFE /* Motorola.png */; };
+		0B7324CF1ED4EA2100938CFE /* Samsung.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7324CE1ED4EA2100938CFE /* Samsung.png */; };
+		0B7324D11ED4EB7600938CFE /* HTC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7324D01ED4EB7600938CFE /* HTC.png */; };
+		0BB0B8AD1EE09033005860A6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB0B8AC1EE09033005860A6 /* WebViewController.m */; };
+		0BB0B8AF1EE09072005860A6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB0B8AE1EE09072005860A6 /* WebKit.framework */; };
 		48A656B518163BF200746D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A656B418163BF200746D36 /* Foundation.framework */; };
 		48A656B718163BF200746D36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A656B618163BF200746D36 /* CoreGraphics.framework */; };
 		48A656B918163BF200746D36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A656B818163BF200746D36 /* UIKit.framework */; };
@@ -38,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B7324C41ED4DFD700938CFE /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apple.png; sourceTree = "<group>"; };
+		0B7324C61ED4DFD700938CFE /* Motorola.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Motorola.png; sourceTree = "<group>"; };
+		0B7324CE1ED4EA2100938CFE /* Samsung.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Samsung.png; sourceTree = "<group>"; };
+		0B7324D01ED4EB7600938CFE /* HTC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTC.png; sourceTree = "<group>"; };
+		0BB0B8AB1EE09033005860A6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		0BB0B8AC1EE09033005860A6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		0BB0B8AE1EE09072005860A6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		48A656B118163BF200746D36 /* NavCtrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavCtrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A656B418163BF200746D36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A656B618163BF200746D36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB0B8AF1EE09072005860A6 /* WebKit.framework in Frameworks */,
 				48A656B718163BF200746D36 /* CoreGraphics.framework in Frameworks */,
 				48A656B918163BF200746D36 /* UIKit.framework in Frameworks */,
 				48A656B518163BF200746D36 /* Foundation.framework in Frameworks */,
@@ -112,6 +126,8 @@
 			children = (
 				9E62FF231E4A33F1002D55B8 /* ProductVC.h */,
 				9E62FF241E4A33F1002D55B8 /* ProductVC.m */,
+				0BB0B8AB1EE09033005860A6 /* WebViewController.h */,
+				0BB0B8AC1EE09033005860A6 /* WebViewController.m */,
 				9E62FF251E4A33F1002D55B8 /* ProductVC.xib */,
 			);
 			name = ProductViewController;
@@ -139,6 +155,7 @@
 		48A656B318163BF200746D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BB0B8AE1EE09072005860A6 /* WebKit.framework */,
 				48A656B418163BF200746D36 /* Foundation.framework */,
 				48A656B618163BF200746D36 /* CoreGraphics.framework */,
 				48A656B818163BF200746D36 /* UIKit.framework */,
@@ -164,6 +181,10 @@
 			children = (
 				48A656BC18163BF200746D36 /* NavCtrl-Info.plist */,
 				48A656BD18163BF200746D36 /* InfoPlist.strings */,
+				0B7324C41ED4DFD700938CFE /* Apple.png */,
+				0B7324CE1ED4EA2100938CFE /* Samsung.png */,
+				0B7324D01ED4EB7600938CFE /* HTC.png */,
+				0B7324C61ED4DFD700938CFE /* Motorola.png */,
 				48A656ED1816468000746D36 /* Sunflower.gif */,
 				48A656C018163BF200746D36 /* main.m */,
 				48A656C218163BF200746D36 /* NavCtrl-Prefix.pch */,
@@ -266,7 +287,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7324C81ED4DFD700938CFE /* Apple.png in Resources */,
+				0B7324D11ED4EB7600938CFE /* HTC.png in Resources */,
 				9E62FF291E4A3982002D55B8 /* Launch Screen.storyboard in Resources */,
+				0B7324CA1ED4DFD700938CFE /* Motorola.png in Resources */,
+				0B7324CF1ED4EA2100938CFE /* Samsung.png in Resources */,
 				48A656EE1816468000746D36 /* Sunflower.gif in Resources */,
 				9E62FF221E4A33DC002D55B8 /* CompanyVC.xib in Resources */,
 				9E62FF271E4A33F1002D55B8 /* ProductVC.xib in Resources */,
@@ -291,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E62FF211E4A33DC002D55B8 /* CompanyVC.m in Sources */,
+				0BB0B8AD1EE09033005860A6 /* WebViewController.m in Sources */,
 				48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */,
 				48A656C118163BF200746D36 /* main.m in Sources */,
 				9E62FF261E4A33F1002D55B8 /* ProductVC.m in Sources */,
